@@ -1,5 +1,5 @@
 #[cfg(test)]
-mod tests {
+mod linked_list_tests {
     use crate::structs::linked_list::LinkedList;
 
     #[test]
@@ -22,5 +22,15 @@ mod tests {
         // Como a função print() não retorna nada, podemos testar se ela executa sem pânico
         let result = std::panic::catch_unwind(|| list.print());
         assert!(result.is_ok());
+    }
+
+    #[test]
+    fn test_length() {
+        let mut list = LinkedList::new();
+        list.append(1);
+        list.append(2);
+        list.append(3);
+
+        assert_eq!(list.count(), 3);
     }
 }

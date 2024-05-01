@@ -2,7 +2,7 @@ use std::fmt::Debug;
 #[derive(Debug)]
 pub struct LinkedList<T> {
     pub head: Option<Box<LinkedNode<T>>>,
-    pub length: usize,
+    length: usize,
 }
 
 #[derive(Debug)]
@@ -38,5 +38,9 @@ impl<T: std::fmt::Debug> LinkedList<T> {
         let new_node = Box::new(LinkedNode::new(data, current.take()));
         *current = Some(new_node);
         self.length += 1;
+    }
+
+    pub fn count(&self) -> usize {
+        self.length
     }
 }
